@@ -1,35 +1,28 @@
-const saludar = function(nombre){
-    return `Hola: ${nombre}`
+// Desestructuraciones
+
+const persona = {
+    nombre: 'Jesus',
+    edad: 33,
+    clave: '12wrt41gf8r'
 }
 
-const saludar2 = (nombre) =>  {
-    return `Hola: ${nombre}`
-}
+const { nombre, edad, clave,  } = persona;
 
-const saludar3 = (nombre) =>  `Hola: ${nombre}`;
-
-const getUser = () => {
-    return {
-        uid: '1235451223431sqew',
-        nombre: 'gtdst545'
+const retornarPersona = ( { nombre, clave, edad, rango = 'Junior' } ) => {
+    return { 
+        nombreNormal: nombre, 
+        edadReal: edad, 
+        codigo: clave, 
+        nivel: rango,
+        origen: {
+            pais: 'Mexico',
+            estado: 'Jalisco'
+        }
     }
 }
 
-const getUser1 = () => 
-    ({
-        uid: '1235451223431sqew',
-        nombre: 'gtdst545'
-    });
 
-const getUsuarioActivo = ( nombre ) => 
-    ({
-        uid: '1235451223431sqew',
-        nombre: nombre
-    });
+const { nombreNormal, edadReal, origen:{ pais, estado  } } = retornarPersona( persona );
 
-const usuarioActivo = getUsuarioActivo( 'Jesus' );
-
-
-
-
-console.log( usuarioActivo );
+console.log(  pais, estado );
+console.log( nombreNormal );
