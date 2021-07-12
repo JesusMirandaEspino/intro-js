@@ -1,31 +1,35 @@
-const nombre = 'Jesus';
-const apellido = 'Miranda';
+const saludar = function(nombre){
+    return `Hola: ${nombre}`
+}
 
+const saludar2 = (nombre) =>  {
+    return `Hola: ${nombre}`
+}
 
-const nombreCompleto =  `${nombre}  ${apellido}`;
+const saludar3 = (nombre) =>  `Hola: ${nombre}`;
 
-
-const persona = {
-    nombre: 'Jesus',
-    apellido: 'Miranda',
-    edad: 33,
-    direccion: {
-        ciudad: 'Quebec',
-        pais: 'Canada'
+const getUser = () => {
+    return {
+        uid: '1235451223431sqew',
+        nombre: 'gtdst545'
     }
-};
+}
+
+const getUser1 = () => 
+    ({
+        uid: '1235451223431sqew',
+        nombre: 'gtdst545'
+    });
+
+const getUsuarioActivo = ( nombre ) => 
+    ({
+        uid: '1235451223431sqew',
+        nombre: nombre
+    });
+
+const usuarioActivo = getUsuarioActivo( 'Jesus' );
 
 
-const getSaludo = () => {
 
-    return `hola`;
 
-} 
-
-console.log( `${getSaludo()}`,  nombreCompleto );
-
-console.log( { persona } );
-
-const persona2 = {...persona};
-
-console.log( { persona2 } );
+console.log( usuarioActivo );
