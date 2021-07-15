@@ -1,18 +1,23 @@
-const api_key = 'Qmar0HBJRlLnLaX5QQMHEsae5AiucqSG';
-
-const peticion = fetch( `http://api.giphy.com/v1/gifs/trending?api_key=${api_key}` );
 
 
-peticion.then( resp =>  resp.json()   )
-    .then(  ( { data } )=> { 
-        const dataArray =  data 
-    
-        dataArray.forEach( item  => {
-            let img = document.createElement( 'img' );
-            let imgGif = item.bitly_gif_url; 
-            img.src = imgGif;
-            document.appendChild( img );
-        }  )
-    
-    } )
-    .catch( console.warn );
+
+
+
+
+const getImage = async () => {
+
+
+    try{
+        const api_key = 'Qmar0HBJRlLnLaX5QQMHEsae5AiucqSG';
+        const resp    = await fetch( `http://api.giphy.com/v1/gifs/trending?api_key=${api_key}` );
+        const data = await resp.json(  );
+
+        console.log( data.data[15].bitly_gif_url );
+
+    }catch(err){
+        console.log( err );
+    }
+}
+
+
+getImage();
