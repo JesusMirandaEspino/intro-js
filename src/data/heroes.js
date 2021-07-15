@@ -27,3 +27,6 @@ export const heroes = [
 ];
 
 
+//  export  { heroes }
+
+
